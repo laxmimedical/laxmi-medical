@@ -17,17 +17,18 @@ export const STORE = {
 
 // ─── Navigation Links ─────────────────────────────────────────────────────────
 export const NAV_LINKS = [
-  { label: 'Home', href: '#hero' },
-  { label: 'About', href: '#about' },
+  { label: 'Home',     href: '#hero' },
+  { label: 'About',    href: '#about' },
   { label: 'Services', href: '#services' },
+  { label: 'Why Us',   href: '#choose-us' },
   { label: 'Products', href: '#products' },
-  { label: 'Gallery', href: '#gallery' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Gallery',  href: '#gallery' },
+  { label: 'Contact',  href: '#contact' },
 ]
 
 // ─── Stats ─────────────────────────────────────────────────────────────────────
 export const STATS = [
-  { value: 10, suffix: '+', label: 'Years of Trust' },
+  { value: 5, suffix: '+', label: 'Years of Trust' },
   { value: 5000, suffix: '+', label: 'Happy Customers' },
   { value: 3000, suffix: '+', label: 'Medicines Available' },
   { value: 24, suffix: '/7', label: 'Service Hours' },
@@ -41,63 +42,63 @@ export const SERVICES = [
     title: 'Prescription Medicines',
     description: 'All branded and generic prescription medicines sourced from verified pharmaceutical manufacturers with authentic quality.',
     color: 'from-emerald-500/20 to-teal-500/20',
-    accent: '#0284C7',
+    accent: '#10B981',
   },
   {
     id: 2,
     icon: 'ShoppingBag',
     title: 'OTC Medicines',
     description: 'Wide range of over-the-counter medicines for everyday health needs — pain relief, cold, digestion, and more.',
-    color: 'from-cyan-500/20 to-emerald-500/20',
-    accent: '#0ea5e9',
+    color: 'from-emerald-400/20 to-teal-400/20',
+    accent: '#34D399',
   },
   {
     id: 3,
     icon: 'Scissors',
     title: 'Surgical Products',
     description: 'Premium surgical instruments, dressings, gloves, syringes, and clinical tools for home and professional use.',
-    color: 'from-green-500/20 to-cyan-500/20',
-    accent: '#0369a1',
+    color: 'from-emerald-600/20 to-teal-600/20',
+    accent: '#059669',
   },
   {
     id: 4,
     icon: 'Leaf',
     title: 'Health Supplements',
     description: 'Vitamins, minerals, protein powders, immunity boosters, and herbal supplements from top health brands.',
-    color: 'from-teal-500/20 to-green-500/20',
-    accent: '#0284C7',
+    color: 'from-emerald-500/20 to-teal-500/20',
+    accent: '#10B981',
   },
   {
     id: 5,
     icon: 'Baby',
     title: 'Baby Care',
     description: 'Gentle, dermatologist-tested baby care products — lotions, diapers, powders, oils, and nutritional supplements.',
-    color: 'from-emerald-400/20 to-mint-500/20',
-    accent: '#7dd3fc',
+    color: 'from-emerald-300/20 to-mint-500/20',
+    accent: '#6EE7B7',
   },
   {
     id: 6,
     icon: 'Sparkles',
     title: 'Personal Care',
     description: 'Skincare, haircare, hygiene products, and wellness essentials from trusted derma and personal care brands.',
-    color: 'from-green-400/20 to-emerald-600/20',
-    accent: '#0ea5e9',
+    color: 'from-emerald-400/20 to-teal-400/20',
+    accent: '#34D399',
   },
   {
     id: 7,
     icon: 'Stethoscope',
     title: 'Healthcare Consultation',
     description: 'Expert guidance from experienced pharmacists on medicine usage, dosage, interactions, and health queries.',
-    color: 'from-teal-600/20 to-cyan-400/20',
-    accent: '#0369a1',
+    color: 'from-emerald-600/20 to-teal-600/20',
+    accent: '#059669',
   },
   {
     id: 8,
     icon: 'Zap',
     title: 'Fast Availability',
     description: 'Urgent medicine needs fulfilled quickly. We stock rare and specialty medicines with minimal wait times.',
-    color: 'from-yellow-500/10 to-emerald-500/20',
-    accent: '#f59e0b',
+    color: 'from-gold-500/10 to-emerald-500/20',
+    accent: '#F59E0B',
   },
 ]
 
@@ -111,7 +112,7 @@ export const FEATURES = [
   {
     icon: 'Award',
     title: 'Trusted Pharmacy',
-    description: 'Licensed and certified pharmacy with 10+ years of serving Udaipur\'s community with integrity.',
+    description: 'Licensed and certified pharmacy with 5+ years of serving Udaipur\'s community with integrity.',
   },
   {
     icon: 'BadgeIndianRupee',
@@ -146,9 +147,9 @@ export const PRODUCTS = [
     rating: 5,
     reviews: 128,
     badge: 'Best Seller',
-    badgeColor: 'bg-medical-blue',
+    badgeColor: 'bg-theme-emerald',
     description: 'Premium Vitamin D3 2000IU with K2 MK-7 for bone health, immunity & heart support.',
-    gradient: 'from-medical-blue/5 to-medical-blue/10',
+    gradient: 'from-theme-emerald/5 to-theme-emerald/10',
   },
   {
     id: 2,
@@ -159,9 +160,9 @@ export const PRODUCTS = [
     rating: 5,
     reviews: 96,
     badge: 'Popular',
-    badgeColor: 'bg-medical-blue/80',
+    badgeColor: 'bg-theme-emerald/80',
     description: 'Triple-strength Omega-3 fatty acids for heart, brain, and joint health.',
-    gradient: 'from-medical-blue/5 to-medical-blue/10',
+    gradient: 'from-theme-emerald/5 to-theme-emerald/10',
   },
   {
     id: 3,
@@ -172,9 +173,9 @@ export const PRODUCTS = [
     rating: 4,
     reviews: 74,
     badge: 'New Arrival',
-    badgeColor: 'bg-medical-blue/60',
+    badgeColor: 'bg-theme-emerald/60',
     description: 'Fast 10-second reading, medical grade accuracy, fever alert system.',
-    gradient: 'from-medical-blue/5 to-medical-blue/10',
+    gradient: 'from-theme-emerald/5 to-theme-emerald/10',
   },
   {
     id: 4,
@@ -185,9 +186,9 @@ export const PRODUCTS = [
     rating: 5,
     reviews: 52,
     badge: 'Essential',
-    badgeColor: 'bg-medical-blue/90',
+    badgeColor: 'bg-theme-emerald/90',
     description: 'Complete first-aid kit with antiseptic, bandages, gauze, and wound care essentials.',
-    gradient: 'from-medical-blue/5 to-medical-blue/10',
+    gradient: 'from-theme-emerald/5 to-theme-emerald/10',
   },
   {
     id: 5,
@@ -198,9 +199,9 @@ export const PRODUCTS = [
     rating: 5,
     reviews: 183,
     badge: 'Top Rated',
-    badgeColor: 'bg-amber-500',
+    badgeColor: 'bg-theme-gold',
     description: 'Gentle baby lotion, oil, powder & wash set — clinically tested for sensitive baby skin.',
-    gradient: 'from-medical-blue/5 to-medical-blue/10',
+    gradient: 'from-theme-emerald/5 to-theme-emerald/10',
   },
   {
     id: 6,
@@ -213,7 +214,7 @@ export const PRODUCTS = [
     badge: 'Save 28%',
     badgeColor: 'bg-red-500',
     description: 'Automatic upper arm blood pressure monitor with irregular heartbeat detection.',
-    gradient: 'from-medical-blue/5 to-medical-blue/10',
+    gradient: 'from-theme-emerald/5 to-theme-emerald/10',
   },
 ]
 
@@ -226,7 +227,7 @@ export const TESTIMONIALS = [
     initials: 'PS',
     rating: 5,
     text: 'Laxmi Medical has been my family\'s go-to pharmacy for over 5 years. The staff is incredibly knowledgeable, medicines are always genuine, and the service is unmatched. Highly recommend!',
-    color: 'from-medical-blue to-medical-blue/80',
+    color: 'from-theme-emerald to-theme-emerald/80',
   },
   {
     id: 2,
@@ -235,7 +236,7 @@ export const TESTIMONIALS = [
     initials: 'RM',
     rating: 5,
     text: 'As a doctor, I always refer my patients to Laxmi Medical. Their authentic medicines, proper storage conditions, and expert pharmacists give me full confidence in recommending them.',
-    color: 'from-medical-blue/10 to-medical-blue/5',
+    color: 'from-theme-emerald/10 to-theme-emerald/5',
   },
   {
     id: 3,
@@ -244,7 +245,7 @@ export const TESTIMONIALS = [
     initials: 'SJ',
     rating: 5,
     text: 'The baby care section is fantastic! They helped me choose the right products for my newborn. The staff was so patient and gave excellent guidance. A store that truly cares!',
-    color: 'from-medical-blue/10 to-medical-blue/5',
+    color: 'from-theme-emerald/10 to-theme-emerald/5',
   },
   {
     id: 4,
@@ -253,7 +254,7 @@ export const TESTIMONIALS = [
     initials: 'DA',
     rating: 5,
     text: 'I\'ve been buying my diabetes medicines here for years. They always have them in stock and often remind me about my refills. The personal touch makes all the difference.',
-    color: 'from-medical-blue/10 to-medical-blue/5',
+    color: 'from-theme-emerald/10 to-theme-emerald/5',
   },
   {
     id: 5,
@@ -262,7 +263,7 @@ export const TESTIMONIALS = [
     initials: 'KR',
     rating: 5,
     text: 'Quick service, genuine products, and amazing discounts! I always find everything I need here — from supplements to surgical products. Best medical store in Udaipur!',
-    color: 'from-medical-blue/10 to-medical-blue/5',
+    color: 'from-theme-emerald/10 to-theme-emerald/5',
   },
 ]
 

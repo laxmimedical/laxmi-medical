@@ -47,26 +47,6 @@ const ServiceCard = ({ service, index }) => {
         }} />
 
       <div className="relative z-10">
-        {/* Icon */}
-        <motion.div
-          className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 relative"
-          style={{
-            background: `${service.accent}18`,
-            border: `1px solid ${service.accent}30`,
-          }}
-          whileHover={{ rotate: 10, scale: 1.1 }}
-          transition={{ duration: 0.3 }}
-        >
-          <Icon size={22} style={{ color: service.accent }} />
-          <motion.div
-            className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100"
-            style={{
-              background: `radial-gradient(circle, ${service.accent}30, transparent)`,
-              transition: 'opacity 0.3s ease',
-            }}
-          />
-        </motion.div>
-
         <h3 className="font-display font-semibold text-medical-slate text-lg mb-2">
           {service.title}
         </h3>
@@ -74,14 +54,6 @@ const ServiceCard = ({ service, index }) => {
           {service.description}
         </p>
 
-        {/* Learn more arrow */}
-        <motion.div
-          className="flex items-center gap-1.5 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all duration-300"
-          style={{ color: service.accent }}
-        >
-          <span className="font-mono text-xs tracking-wide">Learn more</span>
-          <ArrowRight size={12} />
-        </motion.div>
       </div>
     </motion.div>
   )
@@ -106,7 +78,6 @@ const Services = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <span className="section-tag mb-4">What We Offer</span>
           <h2 className="font-display text-4xl md:text-5xl font-semibold text-medical-slate mt-4 mb-4">
             Comprehensive{' '}
             <span className="gradient-text">Healthcare Services</span>

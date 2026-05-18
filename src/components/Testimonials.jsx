@@ -12,7 +12,7 @@ const TestimonialCard = ({ testimonial, isActive }) => (
   >
     {/* Quote mark */}
     <div className="absolute top-4 right-6 opacity-10">
-      <Quote size={48} className="text-medical-blue rotate-180" />
+      <Quote size={48} className="text-theme-emerald rotate-180" />
     </div>
 
     {/* Stars */}
@@ -23,18 +23,18 @@ const TestimonialCard = ({ testimonial, isActive }) => (
     </div>
 
     {/* Text */}
-    <p className="font-body text-medical-gray text-base leading-relaxed italic mb-6 flex-1 font-medium">
+    <p className="font-body text-theme-gray text-base leading-relaxed italic mb-6 flex-1 font-medium">
       "{testimonial.text}"
     </p>
 
     {/* Author */}
     <div className="flex items-center gap-3">
-      <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-display font-semibold text-sm bg-gradient-to-br from-medical-blue to-medical-blue/80 shadow-sm shadow-medical-blue/20`}>
+      <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-display font-semibold text-sm bg-gradient-to-br from-theme-emerald to-theme-emerald/80 shadow-sm shadow-theme-emerald/20`}>
         {testimonial.initials}
       </div>
       <div>
-        <p className="font-body font-semibold text-medical-slate text-sm">{testimonial.name}</p>
-        <p className="font-mono text-xs text-medical-blue font-bold">{testimonial.role}</p>
+        <p className="font-body font-semibold text-theme-dark text-sm">{testimonial.name}</p>
+        <p className="font-mono text-xs text-theme-emerald font-bold">{testimonial.role}</p>
       </div>
     </div>
   </motion.div>
@@ -69,11 +69,11 @@ const Testimonials = () => {
   return (
     <section className="relative py-28 overflow-hidden">
       <div className="absolute inset-0"
-        style={{ background: 'linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%)' }} />
+        style={{ background: 'linear-gradient(180deg, #F0FDF4 0%, #FFFFFF 100%)' }} />
 
       {/* Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full pointer-events-none opacity-[0.05]"
-        style={{ background: 'radial-gradient(ellipse, #0284C7, transparent)' }} />
+        style={{ background: 'radial-gradient(ellipse, #10B981, transparent)' }} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
         {/* Header */}
@@ -85,29 +85,27 @@ const Testimonials = () => {
           transition={{ duration: 0.7 }}
         >
           <div>
-            <span className="section-tag mb-4">Testimonials</span>
-            <h2 className="font-display text-4xl md:text-5xl font-semibold text-medical-slate mt-4">
+            <h2 className="font-display text-4xl md:text-5xl font-semibold text-theme-dark mt-4">
               Voices of{' '}
               <span className="gradient-text">Our Community</span>
             </h2>
           </div>
 
-          {/* Controls */}
           <div className="flex gap-3">
             <motion.button
               onClick={prev}
-              className="w-11 h-11 rounded-xl flex items-center justify-center text-medical-gray/60 hover:text-medical-blue"
-              style={{ background: '#FFFFFF', border: '1px solid rgba(2,132,199,0.1)' }}
-              whileHover={{ scale: 1.1, background: 'rgba(2,132,199,0.05)', borderColor: 'rgba(2,132,199,0.2)' }}
+              className="w-11 h-11 rounded-xl flex items-center justify-center text-theme-gray/60 hover:text-theme-emerald"
+              style={{ background: '#FFFFFF', border: '1px solid rgba(16,185,129,0.1)' }}
+              whileHover={{ scale: 1.1, background: 'rgba(16,185,129,0.05)', borderColor: 'rgba(16,185,129,0.2)' }}
               whileTap={{ scale: 0.9 }}
             >
               <ChevronLeft size={18} />
             </motion.button>
             <motion.button
               onClick={next}
-              className="w-11 h-11 rounded-xl flex items-center justify-center text-medical-gray/60 hover:text-medical-blue"
-              style={{ background: '#FFFFFF', border: '1px solid rgba(2,132,199,0.1)' }}
-              whileHover={{ scale: 1.1, background: 'rgba(2,132,199,0.05)', borderColor: 'rgba(2,132,199,0.2)' }}
+              className="w-11 h-11 rounded-xl flex items-center justify-center text-theme-gray/60 hover:text-theme-emerald"
+              style={{ background: '#FFFFFF', border: '1px solid rgba(16,185,129,0.1)' }}
+              whileHover={{ scale: 1.1, background: 'rgba(16,185,129,0.05)', borderColor: 'rgba(16,185,129,0.2)' }}
               whileTap={{ scale: 0.9 }}
             >
               <ChevronRight size={18} />
@@ -140,7 +138,7 @@ const Testimonials = () => {
               style={{
                 width: i === current ? '24px' : '6px',
                 height: '6px',
-                background: i === current ? '#0284C7' : 'rgba(2,132,199,0.15)',
+                background: i === current ? '#10B981' : 'rgba(16,185,129,0.15)',
               }}
               whileHover={{ scale: 1.2 }}
             />

@@ -34,35 +34,28 @@ const Counter = ({ value, suffix, label }) => {
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      whileHover={{ scale: 1.04, borderColor: 'rgba(2,132,199,0.2)' }}
+      whileHover={{ scale: 1.04, borderColor: 'rgba(16,185,129,0.2)' }}
       transition={{ duration: 0.4 }}
     >
       <p className="font-display text-4xl font-semibold gradient-text leading-none mb-2">
         {isInView ? count.toLocaleString() : 0}{suffix}
       </p>
-      <p className="font-body text-xs text-medical-gray tracking-wide font-medium">{label}</p>
+      <p className="font-body text-xs text-theme-gray tracking-wide font-medium">{label}</p>
     </motion.div>
   )
 }
 
 const About = () => {
-  const highlights = [
-    'Licensed & certified pharmacy since 2014',
-    'Authentic medicines from verified manufacturers',
-    'Expert pharmacists with years of experience',
-    'Comprehensive range of healthcare products',
-    'Community-focused, patient-first approach',
-    'Trusted by thousands of families in Udaipur',
-  ]
+
 
   return (
     <section id="about" className="relative py-28 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0"
-        style={{ background: 'linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 50%, #F8FAFC 100%)' }} />
+        style={{ background: 'linear-gradient(180deg, #F0FDF4 0%, #FFFFFF 50%, #F0FDF4 100%)' }} />
       <div className="absolute inset-0 opacity-[0.05]"
         style={{
-          backgroundImage: `radial-gradient(circle, rgba(2,132,199,0.3) 1px, transparent 1px)`,
+          backgroundImage: `radial-gradient(circle, rgba(16,185,129,0.3) 1px, transparent 1px)`,
           backgroundSize: '40px 40px',
         }} />
 
@@ -75,12 +68,12 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          <span className="section-tag mb-4">Our Story</span>
-          <h2 className="font-display text-4xl md:text-5xl font-semibold text-medical-slate mt-4 mb-4">
-            A Decade of{' '}
+
+          <h2 className="font-display text-4xl md:text-5xl font-semibold text-theme-dark mt-4 mb-4">
+            Years of{' '}
             <span className="gradient-text">Trusted Care</span>
           </h2>
-          <p className="font-body text-medical-gray text-lg max-w-2xl mx-auto leading-relaxed font-medium">
+          <p className="font-body text-theme-gray text-lg max-w-2xl mx-auto leading-relaxed font-medium">
             More than just a pharmacy — we're your neighbors, your health partners, your trusted advisors in every healthcare journey.
           </p>
         </motion.div>
@@ -96,34 +89,15 @@ const About = () => {
           >
             {/* Story text */}
             <div className="space-y-5 mb-10">
-              <p className="font-body text-medical-gray text-base leading-relaxed">
-                Established in the heart of Udaipur, <strong className="text-medical-blue font-semibold">Laxmi Medical Store</strong> has been serving the community with dedication, integrity, and expert pharmaceutical care for over a decade.
+              <p className="font-body text-theme-gray text-base leading-relaxed">
+                Established in the heart of Udaipur, <strong className="text-theme-emerald font-semibold">Laxmi Medical Store</strong> has been serving the community with dedication, integrity, and expert pharmaceutical care for over 5 years.
               </p>
-              <p className="font-body text-medical-gray/80 text-base leading-relaxed">
+              <p className="font-body text-theme-gray/80 text-base leading-relaxed">
                 We believe that access to genuine, affordable medicines is a fundamental right. That's why we've built a pharmacy that combines clinical expertise with warm, personal service — making every customer feel heard and cared for.
               </p>
-              <p className="font-body text-medical-gray/80 text-base leading-relaxed">
+              <p className="font-body text-theme-gray/80 text-base leading-relaxed">
                 From prescription medicines to surgical products, baby care to health supplements, we maintain a comprehensive inventory ensuring you always find what you need under one roof.
               </p>
-            </div>
-
-            {/* Highlights */}
-            <div className="grid grid-cols-1 gap-2.5">
-              {highlights.map((item, i) => (
-                <motion.div
-                  key={i}
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl"
-                  style={{ background: 'rgba(2,132,199,0.03)', border: '1px solid rgba(2,132,199,0.08)' }}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                  whileHover={{ x: 4, borderColor: 'rgba(2,132,199,0.2)' }}
-                >
-                  <CheckCircle size={15} className="text-medical-blue flex-shrink-0" />
-                  <span className="font-body text-medical-gray text-sm font-medium">{item}</span>
-                </motion.div>
-              ))}
             </div>
 
             {/* Contact quick info */}
@@ -134,8 +108,8 @@ const About = () => {
                 { icon: Mail, text: STORE.email, href: `mailto:${STORE.email}` },
               ].map(({ icon: Icon, text, href }) => (
                 <a key={text} href={href}
-                  className="flex items-start gap-3 text-medical-gray hover:text-medical-blue transition-colors group">
-                  <Icon size={14} className="mt-1 flex-shrink-0 text-medical-blue group-hover:text-medical-blue" />
+                  className="flex items-start gap-3 text-theme-gray hover:text-theme-emerald transition-colors group">
+                  <Icon size={14} className="mt-1 flex-shrink-0 text-theme-emerald group-hover:text-theme-emerald" />
                   <span className="font-body text-sm font-medium">{text}</span>
                 </a>
               ))}
@@ -160,20 +134,20 @@ const About = () => {
               transition={{ delay: 0.3 }}
             >
               {/* Quote mark */}
-              <div className="absolute top-4 right-6 font-display text-8xl text-medical-blue/10 leading-none select-none">
+              <div className="absolute top-4 right-6 font-display text-8xl text-theme-emerald/10 leading-none select-none">
                 "
               </div>
-              <p className="font-display text-xl font-medium text-medical-slate leading-relaxed mb-6 relative z-10 italic">
+              <p className="font-display text-xl font-medium text-theme-dark leading-relaxed mb-6 relative z-10 italic">
                 Health is not just the absence of disease — it's the presence of complete well-being. We're here to support your journey every step of the way.
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full flex items-center justify-center text-white font-display font-semibold text-sm"
-                  style={{ background: 'linear-gradient(135deg, #0284C7, #0369a1)' }}>
+                  style={{ background: 'linear-gradient(135deg, #10B981, #064E3B)' }}>
                   LM
                 </div>
                 <div>
-                  <p className="font-body font-semibold text-medical-slate text-sm">Laxmi Medical Team</p>
-                  <p className="font-mono text-xs text-medical-blue font-bold">Nakoda Nagar, Udaipur</p>
+                  <p className="font-body font-semibold text-theme-dark text-sm">Laxmi Medical Team</p>
+                  <p className="font-mono text-xs text-theme-emerald font-bold">Nakoda Nagar, Udaipur</p>
                 </div>
               </div>
             </motion.div>

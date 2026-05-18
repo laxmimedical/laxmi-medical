@@ -19,9 +19,9 @@ const FloatingActions = () => {
       icon: Phone,
       href: `tel:${STORE.phones[0]}`,
       label: 'Call',
-      color: '#0284C7',
-      bg: 'rgba(2,132,199,0.15)',
-      border: 'rgba(2,132,199,0.3)',
+      color: '#10B981',
+      bg: 'rgba(16,185,129,0.15)',
+      border: 'rgba(16,185,129,0.3)',
     },
     {
       icon: Instagram,
@@ -58,7 +58,7 @@ const FloatingActions = () => {
               <Icon size={17} style={{ color: action.color }} />
 
               {/* Tooltip */}
-              <span className="absolute right-14 font-mono text-[10px] tracking-wide text-medical-gray whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none font-bold">
+              <span className="absolute right-14 font-mono text-[10px] tracking-wide text-theme-gray whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none font-bold">
                 {action.label}
               </span>
             </motion.a>
@@ -71,10 +71,10 @@ const FloatingActions = () => {
         onClick={() => setOpen(!open)}
         className="w-12 h-12 rounded-full flex items-center justify-center"
         style={{
-          background: 'linear-gradient(135deg, #0284C7, #0369a1)',
+          background: 'linear-gradient(135deg, #10B981, #059669)',
           boxShadow: open
-            ? '0 0 0 0 rgba(2,132,199,0)'
-            : '0 10px 25px rgba(2,132,199,0.4), 0 0 60px rgba(2,132,199,0.1)',
+            ? '0 0 0 0 rgba(16,185,129,0)'
+            : '0 10px 25px rgba(16,185,129,0.4), 0 0 60px rgba(16,185,129,0.1)',
         }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}

@@ -12,12 +12,14 @@ export default {
         mono: ['JetBrains Mono', 'monospace'],
       },
       colors: {
-        medical: {
-          blue: '#0284C7',
-          alice: '#F8FAFC',
-          slate: '#1E293B',
-          gray: '#475569',
+        theme: {
+          mint: '#F0FDF4',
+          emerald: '#10B981',
+          dark: '#064E3B',
+          gold: '#F59E0B',
           white: '#FFFFFF',
+          slate: '#374151', // Body text
+          gray: '#6B7280',  // Subtext
         },
         emerald: {
           50: '#ecfdf5',
@@ -31,14 +33,6 @@ export default {
           800: '#065f46',
           900: '#064e3b',
           950: '#022c22',
-        },
-        mint: {
-          50: '#f0fdf9',
-          100: '#ccfbef',
-          200: '#99f6e0',
-          300: '#5eead4',
-          400: '#2dd4bf',
-          500: '#14b8a6',
         },
       },
       animation: {

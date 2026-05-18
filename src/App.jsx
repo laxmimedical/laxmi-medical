@@ -10,12 +10,12 @@ import Hero from './components/Hero.jsx'
 import About from './components/About.jsx'
 import Services from './components/Services.jsx'
 import WhyChooseUs from './components/WhyChooseUs.jsx'
-import Products from './components/Products.jsx'
 import Testimonials from './components/Testimonials.jsx'
 import Gallery from './components/Gallery.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 import FloatingActions from './components/FloatingActions.jsx'
+import Products from './components/products/Products.jsx'
 
 function App() {
   const [loaded, setLoaded] = useState(false)

@@ -1,69 +1,77 @@
 import { motion } from 'framer-motion'
-import { ZoomIn, Pill, Leaf, Baby, Scissors, Building, Users } from 'lucide-react'
+import { ZoomIn, MapPin, ExternalLink } from 'lucide-react'
 
-const GALLERY_ITEMS = [
-  { label: 'Medicine Aisle', icon: Pill, span: 'col-span-2 row-span-2', color: 'from-medical-blue/10 to-medical-blue/5', h: 'h-72' },
-  { label: 'Supplements Section', icon: Leaf, span: 'col-span-1 row-span-1', color: 'from-medical-blue/5 to-medical-blue/10', h: 'h-36' },
-  { label: 'Baby Care Corner', icon: Baby, span: 'col-span-1 row-span-1', color: 'from-medical-blue/10 to-medical-blue/5', h: 'h-36' },
-  { label: 'Surgical Products', icon: Scissors, span: 'col-span-1 row-span-2', color: 'from-medical-blue/5 to-medical-blue/10', h: 'h-72' },
-  { label: 'Store Exterior', icon: Building, span: 'col-span-2 row-span-1', color: 'from-medical-blue/10 to-medical-blue/5', h: 'h-36' },
-  { label: 'Consultation Desk', icon: Users, span: 'col-span-1 row-span-1', color: 'from-medical-blue/5 to-medical-blue/10', h: 'h-36' },
+const GALLERY_IMAGES = [
+  { 
+    src: '/front.webp.webp', 
+    label: 'Store Exterior', 
+    span: 'md:col-span-2 md:row-span-2',
+    desc: 'Conveniently located in Nakoda Nagar, Udaipur.' 
+  },
+  { 
+    src: '/stock.webp.webp', 
+    label: 'Medicine Inventory', 
+    span: 'md:col-span-2 md:row-span-1',
+    desc: 'Widest range of genuine medicines in the city.' 
+  },
+  { 
+    src: '/2.webp.webp', 
+    label: 'Wellness Corner', 
+    span: 'md:col-span-1 md:row-span-1',
+    desc: 'Premium vitamins and supplements.' 
+  },
+  { 
+    src: '/3.webp.webp', 
+    label: 'Baby & Mother Care', 
+    span: 'md:col-span-1 md:row-span-1',
+    desc: 'Trusted brands for your family.' 
+  },
+  { 
+    src: '/4.webp.webp', 
+    label: 'Diagnostic Tools', 
+    span: 'md:col-span-2 md:row-span-1',
+    desc: 'BP monitors, nebulizers, and more.' 
+  },
 ]
 
 const GalleryItem = ({ item, index }) => {
-  const Icon = item.icon
-
   return (
     <motion.div
-      className={`relative rounded-2xl overflow-hidden cursor-pointer group ${item.h || 'h-40'}`}
-      initial={{ opacity: 0, scale: 0.95 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, margin: '-30px' }}
-      transition={{ duration: 0.6, delay: index * 0.1 }}
-      whileHover={{ scale: 1.02 }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.7, delay: index * 0.1, ease: [0.21, 0.45, 0.32, 0.9] }}
+      className={`relative overflow-hidden rounded-[2rem] group cursor-pointer border border-slate-100 bg-slate-50 ${item.span}`}
     >
-      {/* Background gradient */}
-      <div className={`absolute inset-0 bg-gradient-to-br ${item.color}`} />
-
-      {/* Pattern overlay */}
-      <div className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `radial-gradient(circle, rgba(2,132,199,0.3) 1px, transparent 1px)`,
-          backgroundSize: '20px 20px',
-        }} />
-
-      {/* Icon */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        <motion.div
-          className="w-16 h-16 rounded-2xl flex items-center justify-center"
-          style={{ background: 'rgba(255,255,255,0.8)', backdropFilter: 'blur(10px)', border: '1px solid rgba(2,132,199,0.1)' }}
-          animate={{ y: [0, -5, 0] }}
-          transition={{ duration: 3 + index * 0.4, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <Icon size={28} className="text-medical-blue" />
-        </motion.div>
+      {/* Dynamic Image Container */}
+      <div className="w-full h-full overflow-hidden">
+        <motion.img
+          src={item.src}
+          alt={item.label}
+          className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
+          loading="lazy"
+        />
       </div>
 
-      {/* Hover overlay */}
-      <motion.div
-        className="absolute inset-0 flex flex-col items-center justify-end p-4 opacity-0 group-hover:opacity-100"
-        style={{ background: 'linear-gradient(0deg, rgba(248,250,252,0.9) 0%, transparent 60%)' }}
-        transition={{ duration: 0.3 }}
-      >
-        <div className="flex items-center gap-2 text-medical-blue">
-          <ZoomIn size={14} />
-          <span className="font-body text-sm font-semibold text-medical-slate">{item.label}</span>
+      {/* Modern Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-emerald-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
+        <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+          <div className="flex items-center gap-2 text-emerald-400 mb-2">
+            <ZoomIn size={18} className="animate-pulse" />
+            <span className="text-[10px] font-black uppercase tracking-[0.2em]">Quick View</span>
+          </div>
+          <h3 className="text-white text-2xl font-bold tracking-tight">{item.label}</h3>
+          <p className="text-emerald-50/70 text-sm mt-2 max-w-[280px] leading-relaxed">
+            {item.desc}
+          </p>
         </div>
-      </motion.div>
-
-      <div className="absolute bottom-3 left-3 px-2.5 py-1 rounded-full opacity-0 group-hover:opacity-0 transition-opacity"
-        style={{ background: '#FFFFFF', border: '1px solid rgba(2,132,199,0.1)' }}>
-        <span className="font-mono text-[10px] text-medical-slate">{item.label}</span>
       </div>
 
-      {/* Always visible label */}
-      <div className="absolute bottom-3 left-3">
-        <span className="font-mono text-[10px] text-medical-gray/40 tracking-wide font-bold">{item.label}</span>
+      {/* Floating Tag (Hides on Hover) */}
+      <div className="absolute top-5 left-5 transition-all duration-300 group-hover:opacity-0 group-hover:-translate-y-2">
+        <span className="bg-white/80 backdrop-blur-md px-4 py-1.5 rounded-full text-[11px] font-bold text-slate-800 uppercase tracking-wider border border-white/50 shadow-sm">
+          {item.label}
+        </span>
       </div>
     </motion.div>
   )
@@ -71,62 +79,37 @@ const GalleryItem = ({ item, index }) => {
 
 const Gallery = () => {
   return (
-    <section id="gallery" className="relative py-28 overflow-hidden">
-      <div className="absolute inset-0"
-        style={{ background: 'linear-gradient(180deg, #FFFFFF 0%, #F8FAFC 50%, #FFFFFF 100%)' }} />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-10">
-        {/* Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-        >
-          <span className="section-tag mb-4">Our Store</span>
-          <h2 className="font-display text-4xl md:text-5xl font-semibold text-medical-slate mt-4 mb-4">
-            A Glimpse of{' '}
-            <span className="gradient-text">Laxmi Medical</span>
-          </h2>
-          <p className="font-body text-medical-gray text-lg max-w-2xl mx-auto leading-relaxed font-medium">
-            Step inside our modern, well-organized pharmacy where every product is carefully stocked and every customer is warmly welcomed.
+    <section id="gallery" className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        
+        {/* Header Section */}
+        <div className="grid lg:grid-cols-2 items-end gap-8 mb-20">
+          <div>
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-emerald-50 text-emerald-700 text-xs font-bold uppercase tracking-widest mb-6"
+            >
+              <MapPin size={14} />
+              Our Location
+            </motion.div>
+            <h2 className="text-4xl md:text-6xl font-bold text-slate-900 tracking-tight leading-[1.1]">
+              Inside Udaipur's <br />
+              <span className="text-emerald-600 italic">Favorite Pharmacy.</span>
+            </h2>
+          </div>
+          <p className="text-slate-500 text-lg md:text-xl font-medium leading-relaxed lg:border-l lg:border-slate-200 lg:pl-12">
+            We take pride in our organization. A clean store means a safe healthcare experience for your family.
           </p>
-        </motion.div>
-
-        {/* Masonry-style grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {/* Row 1 */}
-          <div className="col-span-2 md:col-span-2">
-            <GalleryItem item={{ ...GALLERY_ITEMS[0], h: 'h-64 md:h-80' }} index={0} />
-          </div>
-          <div className="col-span-1 flex flex-col gap-4">
-            <GalleryItem item={{ ...GALLERY_ITEMS[1], h: 'h-[calc(50%-8px)]' }} index={1} />
-            <GalleryItem item={{ ...GALLERY_ITEMS[2], h: 'h-[calc(50%-8px)]' }} index={2} />
-          </div>
-          <div className="col-span-1 flex flex-col gap-4">
-            <GalleryItem item={{ ...GALLERY_ITEMS[3], h: 'h-full min-h-40' }} index={3} />
-          </div>
-
-          {/* Row 2 */}
-          <div className="col-span-2">
-            <GalleryItem item={{ ...GALLERY_ITEMS[4], h: 'h-36' }} index={4} />
-          </div>
-          <div className="col-span-2">
-            <GalleryItem item={{ ...GALLERY_ITEMS[5], h: 'h-36' }} index={5} />
-          </div>
         </div>
 
-        {/* Note */}
-        <motion.p
-          className="text-center font-mono text-xs text-medical-gray/40 mt-8 tracking-wide font-bold"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-        >
-          Visit us in person to experience the full Laxmi Medical Store
-        </motion.p>
+        {/* Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[250px] md:auto-rows-[300px]">
+          {GALLERY_IMAGES.map((item, index) => (
+            <GalleryItem key={index} item={item} index={index} />
+          ))}
+        </div>
+
       </div>
     </section>
   )
