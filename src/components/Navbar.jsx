@@ -36,7 +36,7 @@ const Navbar = () => {
     const targetId = href.replace('#', '')
     const el = document.getElementById(targetId)
     if (el) {
-      const offset = 80 // Adjust based on your navbar height
+      const offset = 80 // Adjust based on navbar height
       const bodyRect = document.body.getBoundingClientRect().top
       const elementRect = el.getBoundingClientRect().top
       const elementPosition = elementRect - bodyRect
