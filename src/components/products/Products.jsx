@@ -245,29 +245,7 @@ const Products = () => {
             )}
           </motion.div>
 
-          {/* Results count */}
-          <p
-            className="text-xs text-slate-400 mb-5 font-medium flex items-center gap-2"
-            style={{ fontFamily: "'DM Sans', 'Inter', sans-serif" }}
-          >
-            <SlidersHorizontal size={11} className="text-slate-300" />
-            {filtered.length === 0 ? (
-              'No products found'
-            ) : (
-              <>
-                Showing{' '}
-                <span className="text-emerald-600 font-bold">{Math.min(visibleCount, filtered.length)}</span>
-                {' '}of{' '}
-                <span className="text-slate-700 font-bold">{filtered.length}</span>{' '}
-                product{filtered.length !== 1 ? 's' : ''}
-                {activeCategory !== 'all' && (
-                  <> in <span className="text-slate-700 font-semibold">
-                    {CATEGORIES.find(c => c.id === activeCategory)?.label}
-                  </span></>
-                )}
-              </>
-            )}
-          </p>
+
 
           {/* Product Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
@@ -313,7 +291,7 @@ const Products = () => {
                 whileTap={{ scale: 0.97 }}
               >
                 <ChevronDown size={16} />
-                Load More ({filtered.length - visibleCount} remaining)
+                Load More
               </motion.button>
             </div>
           )}

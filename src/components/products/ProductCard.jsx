@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 
-/* ─── Skeleton Card ───────────────────────────────────────────── */
+/* ─── Skeleton Card ────────────────────── */
 export const ProductCardSkeleton = () => (
   <div className="rounded-2xl overflow-hidden bg-white border border-slate-100 animate-pulse">
     <div className="h-48 sm:h-52 bg-slate-100" />
@@ -14,7 +14,7 @@ export const ProductCardSkeleton = () => (
   </div>
 )
 
-/* ─── Product Card ────────────────────────────────────────────── */
+/* ─── Product Card ────────────────────────────────── */
 const ProductCard = ({ product, index }) => {
   const [imgLoaded, setImgLoaded] = useState(false)
   const [imgError, setImgError]   = useState(false)
@@ -128,7 +128,6 @@ const ProductCard = ({ product, index }) => {
           {product.description}
         </p>
       </div>
-
       <style>{`
         @keyframes shimmer {
           0%   { background-position: -200% 0 }
@@ -138,5 +137,4 @@ const ProductCard = ({ product, index }) => {
     </motion.article>
   )
 }
-
 export default ProductCard

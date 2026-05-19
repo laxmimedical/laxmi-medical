@@ -80,17 +80,7 @@ const CategoryTabs = ({ active, onChange, counts }) => {
             >
               <span style={{ fontSize: '13px' }}>{cat.emoji}</span>
               {cat.label}
-              {count > 0 && (
-                <span
-                  className="inline-flex items-center justify-center rounded-full text-[9px] font-bold min-w-[16px] h-4 px-1"
-                  style={{
-                    background: isActive ? 'rgba(255,255,255,0.25)' : '#f0fdf4',
-                    color: isActive ? '#ffffff' : '#059669',
-                  }}
-                >
-                  {count}
-                </span>
-              )}
+
             </motion.button>
           )
         })}
