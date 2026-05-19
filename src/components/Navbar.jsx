@@ -7,10 +7,10 @@ import { useActiveSection } from '../hooks/useScrollProgress.js'
 // Nav links in the exact order sections appear on the page
 const NAV_LINKS = [
   { label: 'Home',     href: '#hero' },
-  { label: 'About',    href: '#about' },
+  { label: 'Products', href: '#products' },
   { label: 'Services', href: '#services' },
   { label: 'Why Us',   href: '#choose-us' },
-  { label: 'Products', href: '#products' },
+  { label: 'About',    href: '#about' },
   { label: 'Gallery',  href: '#gallery' },
   { label: 'Contact',  href: '#contact' },
 ]
@@ -20,7 +20,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)
   
   // Array of IDs for the scroll-spy logic
-  const sectionIds = ['hero', 'about', 'services', 'choose-us', 'products', 'gallery', 'contact']
+  const sectionIds = ['hero', 'products', 'services', 'choose-us', 'about', 'gallery', 'contact']
   const activeSection = useActiveSection(sectionIds)
 
   useEffect(() => {
@@ -36,7 +36,7 @@ const Navbar = () => {
     const targetId = href.replace('#', '')
     const el = document.getElementById(targetId)
     if (el) {
-      const offset = 80 // Adjust based on your navbar height
+      const offset = 80 // Adjust based on navbar height
       const bodyRect = document.body.getBoundingClientRect().top
       const elementRect = el.getBoundingClientRect().top
       const elementPosition = elementRect - bodyRect

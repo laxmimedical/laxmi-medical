@@ -41,10 +41,10 @@ function App() {
         <Navbar />
         <main>
           <Hero />
-          <About />
+          <Products />
           <Services />
           <WhyChooseUs />
-          <Products />
+          <About />
           <Testimonials />
           <Gallery />
           <Contact />
