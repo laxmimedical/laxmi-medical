@@ -1,8 +1,8 @@
 import { useState, useMemo, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Search, X, ChevronDown, Package, SlidersHorizontal } from 'lucide-react'
+import { X, ChevronDown, Package } from 'lucide-react'
 
-import { PRODUCTS, CATEGORIES } from './productData.js'
+import { PRODUCTS } from './productData.js'
 import CategoryTabs from './CategoryTabs.jsx'
 import ProductCard, { ProductCardSkeleton } from './ProductCard.jsx'
 
@@ -43,7 +43,7 @@ const SectionHeader = () => (
 )
 
 /* ─── Empty State ─────────────────────────────────────────────── */
-const EmptyState = ({ query, onClear }) => (
+const EmptyState = ({ onClear }) => (
   <motion.div
     className="col-span-full flex flex-col items-center justify-center py-16 sm:py-20 text-center"
     initial={{ opacity: 0, y: 20 }}
@@ -59,9 +59,7 @@ const EmptyState = ({ query, onClear }) => (
       No products found
     </h3>
     <p className="text-slate-400 text-sm mb-6 max-w-xs" style={{ fontFamily: "'DM Sans', 'Inter', sans-serif" }}>
-      {query
-        ? `No results for "${query}". Try a different search term.`
-        : 'No products in this category yet. Check back soon.'}
+      No products in this category yet. Check back soon.
     </p>
     <motion.button
       onClick={onClear}
@@ -82,7 +80,6 @@ const EmptyState = ({ query, onClear }) => (
 /* ─── MAIN PRODUCTS SECTION ───────────────────────────────────── */
 const Products = () => {
   const [activeCategory, setActiveCategory] = useState('all')
-  const [searchQuery,    setSearchQuery]     = useState('')
   const [visibleCount,   setVisibleCount]    = useState(PAGE_SIZE)
   const [isLoading,      setIsLoading]       = useState(false)
 
@@ -95,16 +92,10 @@ const Products = () => {
   }, [])
 
   const filtered = useMemo(() => {
-    const q = searchQuery.trim().toLowerCase()
     return PRODUCTS.filter((p) => {
-      const matchCat = activeCategory === 'all' || p.category === activeCategory
-      const matchSearch = !q ||
-        p.name.toLowerCase().includes(q) ||
-        p.brand.toLowerCase().includes(q) ||
-        p.description.toLowerCase().includes(q)
-      return matchCat && matchSearch
+      return activeCategory === 'all' || p.category === activeCategory
     })
-  }, [activeCategory, searchQuery])
+  }, [activeCategory])
 
   const visible = filtered.slice(0, visibleCount)
   const hasMore = visibleCount < filtered.length
@@ -122,14 +113,8 @@ const Products = () => {
     setVisibleCount(PAGE_SIZE)
   }, [])
 
-  const handleSearch = useCallback((val) => {
-    setSearchQuery(val)
-    setVisibleCount(PAGE_SIZE)
-  }, [])
-
   const clearAll = useCallback(() => {
     setActiveCategory('all')
-    setSearchQuery('')
     setVisibleCount(PAGE_SIZE)
   }, [])
 
@@ -161,7 +146,7 @@ const Products = () => {
 
           {/* Category Tabs */}
           <motion.div
-            className="mb-5"
+            className="mb-8"
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -173,79 +158,6 @@ const Products = () => {
               counts={categoryCounts}
             />
           </motion.div>
-
-          {/* Search + Filter row */}
-          <motion.div
-            className="flex items-center gap-3 mb-6"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.18 }}
-          >
-            {/* Search */}
-            <div className="relative flex-1 max-w-md">
-              <Search
-                size={14}
-                className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none"
-              />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => handleSearch(e.target.value)}
-                placeholder="Search products, brands, conditions…"
-                className="w-full pl-10 pr-10 py-3 rounded-xl bg-white text-sm text-slate-700 placeholder-slate-400 outline-none"
-                style={{
-                  fontFamily: "'DM Sans', 'Inter', sans-serif",
-                  border: '1.5px solid #e2e8f0',
-                  boxShadow: '0 1px 4px rgba(0,0,0,0.04)',
-                  transition: 'border-color 0.2s, box-shadow 0.2s',
-                }}
-                onFocus={(e) => {
-                  e.currentTarget.style.borderColor = '#6ee7b7'
-                  e.currentTarget.style.boxShadow = '0 0 0 3px rgba(16,185,129,0.1)'
-                }}
-                onBlur={(e) => {
-                  e.currentTarget.style.borderColor = '#e2e8f0'
-                  e.currentTarget.style.boxShadow = '0 1px 4px rgba(0,0,0,0.04)'
-                }}
-              />
-              <AnimatePresence>
-                {searchQuery && (
-                  <motion.button
-                    initial={{ opacity: 0, scale: 0.7 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.7 }}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full flex items-center justify-center"
-                    style={{ background: '#e2e8f0' }}
-                    onClick={() => handleSearch('')}
-                  >
-                    <X size={9} className="text-slate-600" />
-                  </motion.button>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* Filter icon button */}
-            {(activeCategory !== 'all' || searchQuery) && (
-              <motion.button
-                initial={{ opacity: 0, scale: 0.85 }}
-                animate={{ opacity: 1, scale: 1 }}
-                onClick={clearAll}
-                className="flex items-center gap-1.5 px-3.5 py-3 rounded-xl text-xs font-semibold"
-                style={{
-                  background: '#fef2f2',
-                  color: '#dc2626',
-                  border: '1.5px solid #fecaca',
-                  fontFamily: "'DM Sans', 'Inter', sans-serif",
-                }}
-              >
-                <X size={12} />
-                Clear
-              </motion.button>
-            )}
-          </motion.div>
-
-
 
           {/* Product Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
@@ -259,7 +171,7 @@ const Products = () => {
                   />
                 ))
               ) : (
-                <EmptyState query={searchQuery} onClear={clearAll} />
+                <EmptyState onClear={clearAll} />
               )}
             </AnimatePresence>
 
