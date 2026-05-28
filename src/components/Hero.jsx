@@ -73,10 +73,10 @@ const Hero = () => {
   const scrollTo = (id) => document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' })
 
   return (
-    <section ref={containerRef} id="hero" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-50">
+    <section ref={containerRef} id="hero" className="relative min-h-screen flex items-center pt-24 pb-12 lg:py-0 overflow-hidden bg-slate-50">
       
       {/* ── BACKGROUND LAYER ── */}
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 bg-emerald-950">
         <img 
           src="/stock.webp.webp" 
           alt="Laxmi Medical Pharmacy" 
@@ -101,8 +101,8 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="text-white font-bold leading-[1.1] tracking-tight mb-6"
-              style={{ fontSize: 'clamp(40px, 5vw, 68px)' }}
+              className="text-white font-bold leading-[1.1] tracking-tight mb-4 md:mb-6"
+              style={{ fontSize: 'clamp(36px, 6vw, 68px)' }}
             >
               Your Trusted <br />
               <span className="text-emerald-400 italic">Healthcare</span> Partner
@@ -113,7 +113,7 @@ const Hero = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-emerald-50/80 text-lg md:text-xl leading-relaxed max-w-lg mb-10 border-l-2 border-emerald-400/50 pl-6"
+              className="text-emerald-50/80 text-base md:text-lg leading-relaxed max-w-lg mb-6 md:mb-10 border-l-2 border-emerald-400/50 pl-6"
             >
               {STORE.subTagline} — Premium medicines, expert consultation, and 100% genuine products delivered with absolute care.
             </motion.p>

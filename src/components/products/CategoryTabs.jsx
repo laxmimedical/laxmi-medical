@@ -64,7 +64,7 @@ const CategoryTabs = ({ active, onChange, counts }) => {
               ref={isActive ? activeRef : null}
               onClick={() => onChange(cat.id)}
               whileTap={{ scale: 0.96 }}
-              className="relative flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap shrink-0 transition-all"
+              className="relative flex items-center px-3.5 py-2 rounded-xl text-xs font-semibold whitespace-nowrap shrink-0 transition-all"
               style={{
                 fontFamily: "'DM Sans', 'Inter', sans-serif",
                 background: isActive
@@ -78,9 +78,7 @@ const CategoryTabs = ({ active, onChange, counts }) => {
                 letterSpacing: '0.01em',
               }}
             >
-              <span style={{ fontSize: '13px' }}>{cat.emoji}</span>
               {cat.label}
-
             </motion.button>
           )
         })}
